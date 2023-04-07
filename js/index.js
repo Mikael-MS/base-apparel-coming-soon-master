@@ -1,33 +1,19 @@
+const email = document.getElementById('email-input');
+const messageError = document.getElementById("message-error");
+const iconError = document.getElementById("icon-error");
 
-let email = document.querySelector(".email");
-let erro = document.querySelector(".error");
-let menssage = document.querySelector("#menssage-error");
-let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-function showError(email){ 
-    email = document.querySelector(".email").value;
-    if(email === "" || !validatorEmail(email)){
-    menssage.innerHTML= "Please provide a valid email";
-    menssage.style.color = 'red';
-    erro.style.display= 'block';
-
-    } 
-    else {
-        erro.style.display= 'none';
-        menssage.innerHTML = "Email successfully sent";
-        email = document.querySelector(".email").value = "";
-        menssage.style.color = 'green';
+function submitEmail(){
+    const emailValue = email.value
+    if(!emailValue || !emailValue.includes('@') 
+    || !emailValue.includes('.') || emailValue.length <= 4) {
+        messageError.innerHTML = "Please provide valid email"
+        messageError.style.color = 'red'
+        iconError.style.display = 'block'
+    } else {
+        messageError.innerHTML = "Email successfully sent"
+        messageError.style.color = 'green'
+        emailValue.innerHTML= ""
+        iconError.style.display = 'none'
     }
 }
-
-
-function validatorEmail(email){
-    let emailPattern = emailRegex;
-    return emailPattern.test(email);
-}
-
-
-
-
-
-
