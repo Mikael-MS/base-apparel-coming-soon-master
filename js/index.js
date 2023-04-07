@@ -1,5 +1,5 @@
 const email = document.getElementById('email-input');
-const messageError = document.getElementById("message-error");
+const errorMessage = document.getElementById("error-message");
 const iconError = document.getElementById("icon-error");
 
 
@@ -7,13 +7,13 @@ function submitEmail(){
     const emailValue = email.value
     if(!emailValue || !emailValue.includes('@') 
     || !emailValue.includes('.') || emailValue.length <= 4) {
-        messageError.innerHTML = "Please provide valid email"
-        messageError.style.color = 'red'
+        errorMessage.innerHTML = "Please provide valid email"
+        errorMessage.style.color = 'red'
         iconError.style.display = 'block'
     } else {
-        messageError.innerHTML = "Email successfully sent"
-        messageError.style.color = 'green'
-        emailValue.innerHTML= ""
+        errorMessage.innerHTML = "Email successfully sent"
+        errorMessage.style.color = 'green'
+        email.value = "" 
         iconError.style.display = 'none'
     }
 }

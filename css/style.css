@@ -23,7 +23,7 @@ body {
     flex-direction: column;
 }
 
-#message-error {
+#error-message {
     font-size: 0.8rem;
     height: 0.8rem;
     margin: 0.5rem 0 0 0.5rem;
